@@ -1,0 +1,100 @@
+
+<div mat-dialog-title>
+  <h1>Empoyee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+
+      <mat-form-field appearance="outline" >
+        <mat-label > Prenoms </mat-label >
+        <input  matInput type="text" placeholder = "Ex: Ange Tresor" formControlName="firstname">
+      </mat-form-field >
+
+      <mat-form-field appearance="outline" >
+        <mat-label > Nom </mat-label >
+        <input  matInput type="text" placeholder = "Ex: Begnan" formControlName="lastname">
+      </mat-form-field >
+
+    </div>
+
+    <div class="row">
+
+      <mat-form-field appearance="outline" >
+        <mat-label > Email </mat-label >
+        <input  matInput type="email" placeholder = "Ex: test@gmail.com" formControlName="email">
+      </mat-form-field >
+      <!-- <mat-form-field appearance="outline" >
+        <mat-label > Date </mat-label >
+        <input  matInput type="text" placeholder = "Ex: test@gmail.com" formControlName="dob">
+      </mat-form-field > -->
+
+      <!-- <mat-form-field appearance = "fill" >
+        <mat-label > Choisir une date </mat-label >
+        <input  matInput [ matDatepicker ]= "picker" formControlName="dob">
+        <mat-hint > MM/DD/YYYY </mat-hint >
+        <mat-datepicker-toggle  matIconSuffix [ for ]= "picker" > </mat-datepicker-toggle >
+        <mat-datepicker # picker > </mat-datepicker>
+
+      </mat-form-field > -->
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="disableTyping"
+        placeholder="Date de naissance" readonly formControlName="dob">
+        <mat-datepicker-toggle matSuffix [for]="disableTyping" >
+        </mat-datepicker-toggle>
+        <mat-datepicker #disableTyping></mat-datepicker>
+      </mat-form-field>
+
+
+
+    </div>
+
+    <div class="row">
+      <mat-radio-group  aria-label = "Sélectionner une option" formControlName="genre">
+        <mat-label><b>Genre</b></mat-label>
+        <mat-radio-button  value = "homme" > Homme </mat-radio-button >
+        <mat-radio-button  value = "femme" > Femme </mat-radio-button >
+          <mat-radio-button  value ="autres" > Autres </mat-radio-button >
+      </mat-radio-group >
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance = "outline" >
+        <mat-label > Statut </mat-label >
+        <mat-select formControlName="status">
+          <!-- education se trouve dans emp-add-edit.component.ts -->
+          <mat-option *ngFor="let val of education" [value]="val">
+            {{val}}
+          </mat-option >
+        </mat-select >
+      </mat-form-field >
+
+      <mat-form-field appearance="outline" >
+        <mat-label > Adresse </mat-label >
+        <input  matInput type="text" placeholder = "Ex: Google" formControlName="adress">
+      </mat-form-field >
+
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" >
+        <mat-label > Job Title </mat-label >
+        <input  matInput type="text" placeholder = "Ex: Developpeur Java" formControlName="jobTitle">
+      </mat-form-field >
+
+      <mat-form-field appearance="outline" >
+        <mat-label > Phone </mat-label >
+        <input  matInput type="text" placeholder = "Ex: 0704668380" formControlName="phone">
+
+      </mat-form-field >
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+
+    <button mat-raised-button  color="primary" type="submit">{{data? 'Update' : 'Save'}}</button>
+  </div>
+</form>
+

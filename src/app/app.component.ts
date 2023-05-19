@@ -74,41 +74,10 @@ export class AppComponent {
     })
   }
 
-  deleteEmployee(id : number){
-    this._empService.deleteEmployee(id).subscribe({
-      next : (res) =>{
-        //console.log(res);
-        //alert("L'employé a été supprimer");
-        this._coreService.openSnackBar("L'employé a été supprimer", "done");
-        this.getEmployeeList();
-      },
-      error : (err)=>{
-        console.log(err);
-      },
-    })
-  }
-
-
-  openEditForm(data : any){
-    const dialogRef = this._dialog.open(EmpAddEditComponent, {
-      data,
-    });
-    dialogRef.afterClosed().subscribe({
-      next : (val) =>{
-        this.getEmployeeList();
-      },
-
-    })
-  }
 
 
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
+
+
 }

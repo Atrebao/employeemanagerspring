@@ -21,12 +21,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { EmpListComponent } from './emp-list/emp-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpAddEditComponent,
+    EmpListComponent,
 
   ],
   imports: [

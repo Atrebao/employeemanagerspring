@@ -13,7 +13,7 @@ import { EmployeeService } from '../employee.service';
 export class EmpAddEditComponent {
   empForm : FormGroup;
 
-  education : string[] =[
+  status : string[] =[
     'Diploma',
     'Intermediare',
     'Graduate',
